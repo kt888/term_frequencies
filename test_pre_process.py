@@ -1,7 +1,7 @@
 from pre_process import Document, TfScores, Index
 
 
-d = Document('test/test_data.txt')
+d = Document('test_data/test_data.txt')
 t = TfScores(d)
 
 
@@ -19,6 +19,6 @@ def test_tf_scores():
 
 
 def test_index():
-    i = Index('test')
+    i = Index('test_data')
     assert i.tf_score_index['test'] == [('test_data.txt', 0.5)]
     assert i.tf_score_index['data'] == [('test_data.txt', float(1)/float(6))]
