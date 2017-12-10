@@ -6,7 +6,14 @@ POS_OF_MAX_TF = 0
 
 
 class Query:
-    def __init__(self, path_to_dir="samples", reindex=False):
+    """
+    Query takes in path to directory and a flag called reindex. If reindex
+    is false, it reads the tf_score from data/ else, it creates a new Index for
+    the documents in the directory and stores them in data/.
+    Query.process(word) gives the name of file where the tf score for that word is
+    maximum as well as the score
+    """
+    def __init__(self, path_to_dir="samples", reindex=True):
         if not reindex:
             with open('data/index_data.pkl', 'r') as file:
                 self.tf_scores = pickle.load(file)

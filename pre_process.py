@@ -1,7 +1,6 @@
 import re
 import os
 import pickle
-import doctest
 from collections import defaultdict
 
 
@@ -50,6 +49,11 @@ class Document:
 
 
 class TfScores:
+    """
+    This class gets the word count for each word in a
+    Document. After that the  tf scores of the words 
+    are calculated
+    """
     def __init__(self, document):
         self.document = document
         self.tf_scores = defaultdict(float)
@@ -67,6 +71,13 @@ class TfScores:
 
 
 class Index:
+    """
+    This class takes in the directory path which has all the Documents.
+    A tf_score_index is created, which is a dict of the  following form:
+        self.__tf_score_index = {word:[(filename_1, tf_score1), (filename_2, tf_score2)]}
+        The list [(filename_1, tf_score1), (filename_2, tf_score2)] is sorted in
+        descending order based on the tf_score
+    """
     def __init__(self, directory_path):
         self.__required_files = self.__required_files(directory_path)
         self.__tf_score_index = defaultdict(list)
@@ -97,7 +108,3 @@ class Index:
     @property
     def tf_score_index(self):
         return self.__tf_score_index
-
-
-if __name__ == "__main__":
-    doctest.testmod()
