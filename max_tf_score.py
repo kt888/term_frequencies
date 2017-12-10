@@ -16,6 +16,7 @@ class Query:
     def process(self, word):
         if word in self.tf_scores.keys():
             return self.tf_scores[word][POS_OF_MAX_TF]
+        return (None, None)
 
 
 def main(q, words):
@@ -29,7 +30,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--path', help='path to input', default='samples')
     parser.add_argument('--reindex', help='Reindex the documents',
-                        type=str_2_bool, const=True, nargs='?', default=False)
+                        type=str_2_bool, const=True, nargs='?', default=True)
     parser.add_argument('--words', help='comma separated list of words')
     return parser.parse_args()
 
@@ -48,5 +49,6 @@ if __name__ == "__main__":
     words = args.words.split(',')
     reindex = args.reindex
     path = args.path
+    print(args)
     q = Query(path, reindex)
     main(q, words)

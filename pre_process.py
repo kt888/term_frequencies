@@ -6,7 +6,13 @@ from collections import defaultdict
 
 
 class Document:
+    """
+    This class is initialized with a path to a document, whose
+    data. The file is read, punctuations are removed, converted
+    to lower case and split into words.
+    """
     def __init__(self, path):
+        assert os.path.isfile(path), "Invalid File Path"
         self.path = path
         self.content = self.__read_document_content()
         self.__normalization().__lower_case().__split_file()
