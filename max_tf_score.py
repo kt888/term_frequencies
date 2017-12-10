@@ -27,7 +27,8 @@ class Query:
 
 
 def main(q, words):
-    print("Word\tDoc name\tTF Score")
+    print("Word\tDoc_name\tTF_Score")
+    print("------------------------------------------------")
     for word in words:
         filename, tf_score = q.process(word)
         print("{}\t{}\t{}".format(word, filename, tf_score))
