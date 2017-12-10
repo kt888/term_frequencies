@@ -37,7 +37,10 @@ class Document:
 
     @property
     def name(self):
-        return self.path.split('/')[-1]
+        try:
+            return self.path.split('/')[-1]
+        except:
+            raise TypeError("Invalid File Path")
 
 
 class TfScores:
@@ -66,9 +69,12 @@ class Index:
             pickle.dump(self.__tf_score_index, file)
 
     def __required_files(self, directory):
-        for filename in os.listdir(directory):
-            if filename.endswith(".txt"):
-                yield '{}/{}'.format(directory, filename)
+        try:
+            for filename in os.listdir(directory):
+                if filename.endswith(".txt"):
+                    yield '{}/{}'.format(directory, filename)
+        except:
+            raise TypeError("Invalid Directory")
 
     def __process_files(self):
         for file in self.__required_files:
