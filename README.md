@@ -1,4 +1,4 @@
-# term_frequencies
+# Tf scores
 
 ## How to run
 
