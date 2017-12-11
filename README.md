@@ -26,7 +26,7 @@ pytest
 ## Code Flow
 
 There are two main modules - pre_process.py which has the following classes
-> module pre_process.py
+> module pre_process
 * Document
 * TfScores
 * Index
