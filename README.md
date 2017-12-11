@@ -14,7 +14,7 @@ python max_tf_score.py --words "whale,sea,queequeg" --path "samples"
 
 * 1 word 
 ```
-python max_tf_score.py --words "whale," --path "samples"
+python max_tf_score.py --words "whale" --path "samples"
 ```
 
 * Run all tests
