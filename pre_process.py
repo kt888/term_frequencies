@@ -6,8 +6,10 @@ from collections import defaultdict
 
 class Document:
     """
-    This class is initialized with a path to a document, whose
-    data. The file is read, punctuations are removed, converted
+    This class is initialized with a path to a document. 
+    The document is a file of text data and must have an
+    extension of .txt.
+    The file is read, punctuations are removed, converted
     to lower case and split into words.
     """
     def __init__(self, path):
